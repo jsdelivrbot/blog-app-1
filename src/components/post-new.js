@@ -10,10 +10,7 @@ class PostNew extends Component {
     }
 
     onSubmit(data) {
-      this.props.createPost(data)
-        .then(() => {
-          this.context.router.push("/")
-      })
+      this.props.createPost(data, () => this.context.router.push("/"))
     }
 
     render() {

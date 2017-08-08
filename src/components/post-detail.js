@@ -9,21 +9,13 @@ class PostDetail extends Component {
     router : PropTypes.object
   }
 
-  constructor(){
-    super()
-
-    this.state = {selectedPost : null}
-  }
-
   componentDidMount(){
     this.props.getPost(this.props.params.postId)
 
   }
 
   onDelete(postId){
-    this.props.deletePost(postId).then(() => {
-      this.context.router.push("/")
-    })
+    this.props.deletePost(postId, () => this.context.router.push("/"))
   }
 
   render(){
